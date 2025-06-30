@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* Light background */
+  --foreground: #333333; /* Dark text for light background */
+  --primary-blue: #3B82F6; /* Pokémon Blue */
+  --primary-yellow: #FBBF24; /* Pokémon Yellow */
+  --primary-red: #EF4444; /* Pokémon Red */
+  --dark-background: #1F2937; /* Dark background for dark mode */
+  --dark-foreground: #F3F4F6; /* Light text for dark mode */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans); /* Using existing Geist Sans */
+  --font-mono: var(--font-geist-mono); /* Using existing Geist Mono */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--dark-background);
+    --foreground: var(--dark-foreground);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Example of using Pokémon colors directly in components if needed,
+   but Tailwind classes are preferred (e.g., bg-primary-blue) */
+.pokemon-blue-bg {
+  background-color: var(--primary-blue);
+}
+.pokemon-yellow-text {
+  color: var(--primary-yellow);
+}
+.pokemon-red-border {
+  border-color: var(--primary-red);
 }
